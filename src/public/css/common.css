@@ -1,0 +1,38 @@
+body{
+  --color-main:#8B7969;
+  --color-background:#f1ece7;
+    color: var(--color-main);
+    margin: 0;
+}
+
+.header{
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  padding: 16px;
+  position: relative;
+  height: 80px;
+  background-color: #fff;
+}
+
+.header h1{
+  margin: 0;
+
+}
+
+.link-button{
+  position:absolute;
+  right: 64px;
+  top: 50%;
+  transform: translate(0,-50%);
+  border: 1px solid var(--color-main);
+  padding: 4px 16px;
+  background-color: #eee;
+  opacity: 0.8;
+}
+
+.link-button a{
+  text-decoration: none;
+  color: var(--color-main);
+}
+
+
