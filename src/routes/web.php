@@ -16,3 +16,7 @@ use App\Http\Controllers\RegisterController;
 
 Route::post('/register',[RegisterController::class,'store']);
 Route::get('/register',[RegisterController::class,'register']);
+
+Route::get('/thanks',function(){
+    return view('thanks');
+});
