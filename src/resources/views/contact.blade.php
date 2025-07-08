@@ -19,8 +19,8 @@
             <span>※</span>
           </th>
           <td class="table__item">
-            <input type="text" name='first-name'>
-            <input type="text" name="last-name">
+            <input class="table__item-name" type="text" name='first-name'>
+            <input class="table__item-name" type="text" name="last-name">
           </td>
         </tr>
 
@@ -39,7 +39,7 @@
               <label for="woman">女性</label>
             </div>
             <div class="radio-group">
-              <input type="radio" name="gender" value="other" id="other" >
+              <input type="radio" name="gender" value="other" id="other">
               <label for="other">その他</label>
             </div>
           </td>
@@ -62,9 +62,9 @@
           </th>
           <td class="table__item">
             <input type="tel" name="tel1" maxlength="3">
-            <p>-</p>
+            <p class="space">-</p>
             <input type="tel" name="tel2" maxlength="4">
-            <p>-</p>
+            <p class="space">-</p>
             <input type="tel" name="tel3" maxlength="4">
           </td>
         </tr>

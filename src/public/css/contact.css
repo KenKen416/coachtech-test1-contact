@@ -15,3 +15,73 @@ main {
 .content__title {
   margin-top: 16px;
 }
+.form{
+  margin: 0 auto;
+}
+
+table{
+  width: 70%;
+  margin: 0 auto;
+
+}
+
+input{
+  line-height: 2;
+  width: 100%;
+}
+
+select{
+  line-height: 2;
+    width: 100%;
+    height: 40px;
+}
+
+textarea{
+  line-height: 2;
+    width: 100%;
+}
+
+
+.table__header{
+  text-align: left;
+  width: 30%;
+  padding: 16px;
+}
+.table__header span{
+  color: red;
+}
+
+.table__item{
+  display: flex;
+  align-items: center;
+  padding: 16px 32px;
+  justify-content: space-between;
+  vertical-align: middle;
+}
+.table__item-name{
+  width: 45%;
+}
+
+.radio-group{
+  display: flex;
+}
+
+.radio-group label{
+  width: 120px;
+}
+
+.space{
+  margin: 16px;
+}
+
+.form__button {
+  margin: 32px 0 0;
+}
+
+.form__button button {
+  all: unset;
+  padding: 4px 32px;
+  background-color: #82756b;
+  color: #fff;
+  cursor: pointer;
+}
