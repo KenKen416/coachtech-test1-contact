@@ -20,3 +20,6 @@ Route::get('/register',[RegisterController::class,'register']);
 Route::get('/thanks',function(){
     return view('thanks');
 });
+Route::get('/',function(){
+    return view('contact');
+});
