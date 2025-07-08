@@ -10,7 +10,8 @@
     <h2>Contact</h2>
   </div>
   <div class="form">
-    <form action="" class="form__inner">
+    <form action="/" method="post" class="form__inner">
+      @csrf
       <table>
 
         <tr class="table__row">
@@ -19,11 +20,10 @@
             <span>※</span>
           </th>
           <td class="table__item">
-            <input class="table__item-name" type="text" name='first-name'>
-            <input class="table__item-name" type="text" name="last-name">
+            <input class="table__item-name" type="text" name='first_name'>
+            <input class="table__item-name" type="text" name="last_name">
           </td>
         </tr>
-
         <tr class="table__row">
           <th class="table__header">
             性別
@@ -31,15 +31,15 @@
           </th>
           <td class="table__item">
             <div class="radio-group">
-              <input type="radio" name="gender" value="man" id="man" checked>
+              <input type="radio" name="gender" value="1" id="1" checked>
               <label for="man">男性</label>
             </div>
             <div class="radio-group">
-              <input type="radio" name="gender" value="woman" id="woman">
+              <input type="radio" name="gender" value="2" id="2">
               <label for="woman">女性</label>
             </div>
             <div class="radio-group">
-              <input type="radio" name="gender" value="other" id="other">
+              <input type="radio" name="gender" value="3" id="3">
               <label for="other">その他</label>
             </div>
           </td>
