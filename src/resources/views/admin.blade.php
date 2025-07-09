@@ -13,43 +13,51 @@
     <h2>Admin</h2>
   </div>
   <div class="form">
-    @csrf
-    <form action="" class="form__inner">
+    <form action="/admin" method="get" class="form__inner">
+      @csrf
       <div class="form__search-keyword">
-        <input type="text" name="keyword">
+        <input type="text" name="keyword" value="{{request('keyword')}}" placeholder="名前やメールなどを入力してください">
       </div>
       <div class="form__search-gender">
         <select name="gender">
           <option value="">性別</option>
-          <option value="1">男性</option>
-          <option value="2">女性</option>
-          <option value="3">その他</option>
+          <option value="1" {{request('gender') == '1' ? 'selected' : '' }}>男性</option>
+          <option value="2" {{request('gender') == '2' ? 'selected' : ''}}>女性</option>
+          <option value="3" {{request('gender') == '3' ? 'selected' : ''}}>その他</option>
         </select>
       </div>
       <div class="form__search-category">
         <select name="category_id" id="">
           <option value="">お問い合わせの種類</option>
-          <option value="1">商品のお届けについて</option>
-          <option value="2">商品の交換について</option>
-          <option value="3">商品トラブル</option>
-          <option value="4">ショップへのお問い合わせ</option>
-          <option value="5">その他</option>
+          <option value="1" {{request('category_id') == '1' ?'selected' : ''}}>商品のお届けについて</option>
+          <option value="2" {{request('category_id') == '2' ?'selected' : ''}}>商品の交換について</option>
+          <option value="3" {{request('category_id') == '3' ?'selected' : ''}}>商品トラブル</option>
+          <option value="4" {{request('category_id') == '4' ?'selected' : ''}}>ショップへのお問い合わせ</option>
+          <option value="5" {{request('category_id') == '5' ?'selected' : ''}}>その他</option>
         </select>
       </div>
       <div class="form__search-calender">
-        <input type="date" name="created_at">
+        <input type="date" name="created_at" value="{{request('created_at')}}">
       </div>
       <div class="form__search-submit">
         <button class="form__search-submit--button" type="submit">検索</button>
       </div>
       <div class="form__search-reset">
-        <button class="form__search-reset--button">リセット</button>
+        <a class="form__search-reset--button" href="/admin">リセット</a>
       </div>
     </form>
   </div>
   <div class="function">
     <div class="function__export">
-      <button class="function__export-button">エクスポート</button>
+      <form method="get" action="/admin/export" class="function__export-form">
+        @csrf
+        <input type="hidden" name="keyword" value="{{ request('keyword') }}">
+        <input type="hidden" name="gender" value="{{ request('gender') }}">
+        <input type="hidden" name="category_id" value="{{ request('category_id') }}">
+        <input type="hidden" name="created_at" value="{{ request('created_at') }}">
+        <button type="submit" class="function__export--button">エクスポート</button>
+      </form>
+
     </div>
     <div class="function__paging">
       {{ $contacts->links('pagination::bootstrap-4') }}
@@ -68,7 +76,7 @@
       <tr class="table__row">
 
         <td class="table__item--main">
-          {{$contact['last_name']}} {{$contact['first_name']}}
+          {{$contact['last_name']. '　' . $contact['first_name']}}
         </td>
         <td class="table__item--main">
           {{$contact['gender_label']}}

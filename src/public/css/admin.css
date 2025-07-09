@@ -82,7 +82,7 @@ h2 {
   flex: 1;
 }
 
-.form__search-submit button {
+.form__search-submit--button {
   all: unset;
   height: 100%;
   width: 100%;
@@ -95,19 +95,24 @@ h2 {
   flex: 1;
 }
 
-.form__search-reset button {
+.form__search-reset--button {
   all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 100%;
   width: 100%;
   background-color: var(--color-sub);
   color: white;
   cursor: pointer;
+
 }
 
 .function {
   margin-top: 24px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   height: 40px;
 }
 
@@ -117,8 +122,15 @@ h2 {
   max-width: 200px;
 }
 
-.function__export button {
+.function__export-form{
+  height: 100%;
+}
+
+.function__export--button {
   all: unset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100%;
   width: 100%;
   background-color: #ddd;
