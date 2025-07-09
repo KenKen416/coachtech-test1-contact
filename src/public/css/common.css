@@ -1,6 +1,8 @@
 body{
   --color-main:#8B7969;
+  --color-sub:#d9c6b5;
   --color-background:#f1ece7;
+
     color: var(--color-main);
     margin: 0;
 }

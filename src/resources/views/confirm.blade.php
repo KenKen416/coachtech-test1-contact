@@ -18,7 +18,7 @@
             お名前
           </th>
           <td class="table__item">
-            <p>{{$confirm['first_name']}} {{$confirm['last_name']}}</p>
+            <p>{{$confirm['last_name']}} {{$confirm['first_name']}} </p>
             <input class="table__item-name" type="hidden" name='first_name' value="{{$confirm['first_name']}}">
             <input class="table__item-name" type="hidden" name="last_name" value="{{$confirm['last_name']}}">
           </td>

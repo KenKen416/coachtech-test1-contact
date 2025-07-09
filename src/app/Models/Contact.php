@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use App\Models\Category;
 class Contact extends Model
 {
+
     use HasFactory;
+    public $gender_label;
     protected $fillable = [
         'category_id',
         'first_name',
@@ -19,4 +21,7 @@ class Contact extends Model
         'building',
         'detail',
     ];
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
 }

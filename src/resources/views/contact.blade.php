@@ -20,8 +20,8 @@
             <span>※</span>
           </th>
           <td class="table__item">
-            <input class="table__item-name" type="text" name='first_name'>
             <input class="table__item-name" type="text" name="last_name">
+            <input class="table__item-name" type="text" name='first_name'>
           </td>
         </tr>
         <tr class="table__row">
