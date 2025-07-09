@@ -56,35 +56,114 @@
     </div>
   </div>
   <div class="contact-lists">
-    <table class="contact-lists__table">
+    <table class="table--main">
       <tr class="table__row">
-        <th class="table__header">お名前</th>
-        <th class="table__header">性別</th>
-        <th class="table__header">メールアドレス</th>
-        <th class="table__header">お問い合わせの種類</th>
-        <th class="table__header"></th>
+        <th class="table__header--main">お名前</th>
+        <th class="table__header--main">性別</th>
+        <th class="table__header--main">メールアドレス</th>
+        <th class="table__header--main">お問い合わせの種類</th>
+        <th class="table__header--main"></th>
       </tr>
       @foreach($contacts as $contact)
       <tr class="table__row">
 
-        <td class="table__item">
+        <td class="table__item--main">
           {{$contact['last_name']}} {{$contact['first_name']}}
         </td>
-        <td class="table__item">
+        <td class="table__item--main">
           {{$contact['gender_label']}}
         </td>
-        <td class="table__item">
+        <td class="table__item--main">
           {{$contact['email']}}
         </td>
-        <td class="table__item">
+        <td class="table__item--main">
           {{$contact->category->content}}
         </td>
-        <td class="table__item">
-          <button id="openModal" class="open-modal">詳細</button> <!--変更必要-->
+        <td class="table__item--main">
+          <button class="open-button" popovertarget="modal-{{$contact->id}}" popovertargetaction="show">
+            詳細
+          </button>
+          <div class="modal" id="modal-{{$contact->id}}" popover>
+            <div class="modal__inner">
+              <table class="table--modal">
+                <tr>
+                  <th class="table__header--modal">お名前</th>
+                  <td class="table__item--modal">{{$contact['last_name']}} {{$contact['first_name']}}</td>
+                </tr>
+                <tr>
+                  <th class="table__header--modal">性別</th>
+                  <td class="table__item--modal">
+                    {{$contact['gender_label']}}
+                  </td>
+                </tr>
+                <tr>
+                  <th class="table__header--modal">メールアドレス</th>
+                  <td class="table__item--modal">
+                    {{$contact['email']}}
+                  </td>
+                </tr>
+                <tr>
+                  <th class="table__header--modal">電話番号</th>
+                  <td class="table__item--modal">
+                    {{$contact['tel']}}
+                  </td>
+                </tr>
+                <tr>
+                  <th class="table__header--modal">住所</th>
+                  <td class="table__item--modal">
+                    {{$contact['address']}}
+                  </td>
+                </tr>
+                <tr>
+                  <th class="table__header--modal">建物名</th>
+                  <td class="table__item--modal">
+                    {{$contact['building']}}
+                  </td>
+                </tr>
+                <tr>
+                  <th class="table__header--modal">お問い合わせの種類</th>
+                  <td class="table__item--modal">
+                    {{$contact->category->content}}
+                  </td>
+                </tr>
+                <tr>
+                  <th class="table__header--modal">お問い合わせの内容</th>
+                  <td class="table__item--modal">
+                    {{$contact['detail']}}
+                  </td>
+                </tr>
+              </table>
+              <div class="delete-button">
+                <form action="/admin/delete" method="post" class="delete-button__form">
+                  @method('DELETE')
+                  @csrf
+                  <input type="hidden" name="id" value="{{$contact->id}}">
+                  <button type="submit">削除</button>
+                </form>
+              </div>
+            </div>
+            <button class="close-button" popovertarget="modal-{{$contact->id}}" popovertargetaction="hide">
+              ×
+            </button>
+          </div>
         </td>
       </tr>
       @endforeach
     </table>
   </div>
+  @if(session('message'))
+  <div class="message">
+    <h2>
+      {{session('message')}}
+    </h2>
+  </div>
+  @endif
+  @if(session('notfound'))
+  <div class="notfound">
+    <h2>
+      {{session('notfound')}}
+    </h2>
+  </div>
+  @endif
 </div>
 @endsection

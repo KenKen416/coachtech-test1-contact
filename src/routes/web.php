@@ -16,12 +16,13 @@ use App\Http\Controllers\RegisterController;
 |
 */
 
-Route::post('/register',[RegisterController::class,'store']);
-Route::get('/register',[RegisterController::class,'register']);
+Route::post('/register', [RegisterController::class, 'store']);
+Route::get('/register', [RegisterController::class, 'register']);
 
 Route::get('/', [ContactController::class, 'index']);
-Route::get('/thanks',[ContactController::class,'thanks']);
-Route::post('/',[ContactController::class,'confirm']);
-Route::post('/create',[ContactController::class,'create']);
+Route::get('/thanks', [ContactController::class, 'thanks']);
+Route::post('/', [ContactController::class, 'confirm']);
+Route::post('/create', [ContactController::class, 'create']);
 
-Route::get('/admin',[AdminController::class,'index']);
+Route::get('/admin', [AdminController::class, 'index']);
+Route::delete('/admin/delete',[AdminController::class,'destroy']);

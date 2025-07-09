@@ -9,7 +9,6 @@ class Contact extends Model
 {
 
     use HasFactory;
-    public $gender_label;
     protected $fillable = [
         'category_id',
         'first_name',

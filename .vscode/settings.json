@@ -5,6 +5,8 @@
     "encrypter",
     "enderror",
     "endsection",
+    "popovertarget",
+    "popovertargetaction",
     "tabindex"
   ]
 }

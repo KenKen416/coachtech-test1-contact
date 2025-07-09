@@ -18,4 +18,13 @@ class AdminController extends Controller
         };
         return view('admin',compact('contacts'));
     }
+    public function destroy(Request $request)
+    {
+        $contact = Contact::find($request->id);
+        if (!$contact){
+            return redirect('admin')->with('notfound','該当データが見つかりませんでした');
+        }
+        $contact->delete();
+        return redirect('admin')->with('message', '削除しました');
+    }
 }

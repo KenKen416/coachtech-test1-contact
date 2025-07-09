@@ -90,6 +90,7 @@ h2 {
   color: white;
   cursor: pointer;
 }
+
 .form__search-reset {
   flex: 1;
 }
@@ -130,25 +131,24 @@ h2 {
   margin-top: 12px;
 }
 
-tr{
+tr {
   height: 56px;
 }
 
-th{
-  height: 40px;
+.table--main {
+  width: 100%;
+  border: 1px solid #eee;
+}
+
+.table__header--main {
   background-color: var(--color-main);
   color: white;
 }
 
-td{
-  height: 40px;
+.table__item--main {
   border-bottom: 1px solid #eee;
 }
 
-table{
-  width: 100%;
-  border: 1px solid #eee;
-}
 
 
 /* ページネーションのスタイル */
@@ -161,11 +161,12 @@ nav[role="navigation"] {
 ul.pagination {
   display: flex;
   list-style: none;
-  gap: 8px;
   padding-left: 0;
 }
 
 ul.pagination li {
+  border: 1px solid #eee;
+
   padding: 4px 10px;
   border-radius: 4px;
   transition: all 0.2s ease-in-out;
@@ -177,12 +178,98 @@ ul.pagination li a {
   font-weight: bold;
 }
 
-ul.pagination li.active span {
-  background-color: #a98e76;
+ul.pagination li.active {
+  background-color: var(--color-main);
   color: white;
   font-weight: bold;
 }
 
 ul.pagination li.disabled span {
   color: #ccc;
+}
+
+/* モーダル */
+/* 参考サイトhttps: //qiita.com/mu_tomoya/items/f62690cc50df395bce32 */
+*:popover-open {
+  position: relative;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  min-width: 300px;
+}
+
+*::backdrop {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* button {
+  border: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+} */
+
+.open-button {
+  padding: 8px 16px;
+  border: 1px solid #eee;
+  background-color: white;
+  color: var(--color-main);
+  cursor: pointer;
+}
+
+.close-button {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  border: 1px solid #eee;
+  border-radius: 50%;
+  background-color: white;
+  color: var(--color-main);
+  cursor: pointer;
+}
+
+.modal {
+  padding: 64px 32px;
+  color: var(--color-main);
+  text-align: left;
+  max-width: 60%;
+}
+.table__header--modal{
+  padding: 8px 32px;
+}
+
+.delete-button {
+  margin-top: 32px;
+  text-align: center;
+}
+.delete-button button{
+  all: unset;
+  background-color: red;
+  color: white;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+/* 削除後メッセージ表示 */
+
+.message{
+  background-color: aquamarine;
+  color: red;
+  height:64px;
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+  .notfound {
+      background-color: red;
+      color: white;
+      height: 64px;
+      margin-top: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 }
