@@ -42,7 +42,7 @@ main {
   border: none;
   background: #eee;
   margin-top: 4px;
-  color: #ddd;
+  color: #000;
 }
 
 .form__item-input:focus {

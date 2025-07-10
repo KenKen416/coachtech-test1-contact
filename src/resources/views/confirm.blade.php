@@ -19,8 +19,6 @@
           </th>
           <td class="table__item">
             <p>{{$confirm['last_name']}} {{$confirm['first_name']}} </p>
-            <input class="table__item-name" type="hidden" name='first_name' value="{{$confirm['first_name']}}">
-            <input class="table__item-name" type="hidden" name="last_name" value="{{$confirm['last_name']}}">
           </td>
         </tr>
 
@@ -30,7 +28,6 @@
           </th>
           <td class="table__item">
             <p>{{$gender_label}}</p>
-            <input type="hidden" name='gender' value="{{$confirm['gender']}}">
           </td>
         </tr>
 
@@ -40,7 +37,6 @@
           </th>
           <td class="table__item">
             <p>{{$confirm['email']}}</p>
-            <input type="hidden" name="email" value="{{$confirm['email']}}">
           </td>
         </tr>
 
@@ -50,8 +46,6 @@
           </th>
           <td class="table__item">
             <p>{{$tel}}</p>
-            <input type="hidden" name="tel"
-              value="{{$tel}}">
           </td>
         </tr>
 
@@ -61,7 +55,6 @@
           </th>
           <td class="table__item">
             <p>{{$confirm['address']}}</p>
-            <input type="hidden" name="address" value="{{$confirm['address']}}">
           </td>
         </tr>
 
@@ -71,7 +64,6 @@
           </th>
           <td class="table__item">
             <p>{{$confirm['building']}}</p>
-            <input type="hidden" name="building" value="{{$confirm['building']}}">
           </td>
         </tr>
 
@@ -81,7 +73,6 @@
           </th>
           <td class="table__item">
             <p>{{$content}}</p>
-            <input type="hidden" name="category_id" value="{{$confirm['category_id']}}">
           </td>
         </tr>
 
@@ -90,19 +81,46 @@
             お問い合わせ内容
           </th>
           <td class="table__item">
-            <p>{{$confirm['detail']}}</p>
-            <input type="hidden" name="detail" value="{{$confirm['detail']}}">
+            <p>{!! nl2br(e($confirm['detail'])) !!}</p>
           </td>
         </tr>
       </table>
       <div class="form__button">
+
+        <!-- ポストする内容 -->
+        <input type="hidden" name='first_name' value="{{$confirm['first_name']}}">
+        <input type="hidden" name="last_name" value="{{$confirm['last_name']}}">
+        <input type="hidden" name='gender' value="{{$confirm['gender']}}">
+        <input type="hidden" name="email" value="{{$confirm['email']}}">
+        <input type="hidden" name="tel" value="{{$tel}}">
+        <input type="hidden" name="address" value="{{$confirm['address']}}">
+        <input type="hidden" name="building" value="{{$confirm['building']}}">
+        <input type="hidden" name="category_id" value="{{$confirm['category_id']}}">
+        <input type="hidden" name="detail" value="{{$confirm['detail']}}">
+
         <button class="form__button-submit" type="submit">
           送信
         </button>
-        <a href="/" class="form__button-modify">修正</a>
-
       </div>
     </form>
   </div>
+  <form action="/" method="POST" class="form__modify">
+    @csrf
+
+    <!-- ポストする内容 -->
+    <input type="hidden" name="first_name" value="{{ $confirm['first_name'] }}">
+    <input type="hidden" name="last_name" value="{{ $confirm['last_name'] }}">
+    <input type="hidden" name="gender" value="{{ $confirm['gender'] }}">
+    <input type="hidden" name="email" value="{{ $confirm['email'] }}">
+    <input type="hidden" name="tel1" value="{{ $confirm['tel1'] }}">
+    <input type="hidden" name="tel2" value="{{ $confirm['tel2'] }}">
+    <input type="hidden" name="tel3" value="{{ $confirm['tel3'] }}">
+    <input type="hidden" name="address" value="{{ $confirm['address'] }}">
+    <input type="hidden" name="building" value="{{ $confirm['building'] }}">
+    <input type="hidden" name="category_id" value="{{ $confirm['category_id'] }}">
+    <input type="hidden" name="detail" value="{{$confirm['detail']}}">
+
+    <button type="submit" name="action" value="back" class="form_modify-button">修正</button>
+  </form>
 </div>
 @endsection

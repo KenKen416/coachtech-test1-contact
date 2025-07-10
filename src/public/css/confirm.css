@@ -1,0 +1,72 @@
+.link-button {
+  visibility: hidden;
+}
+
+h2 {
+  margin: 0;
+}
+
+main {
+  padding: 24px;
+  text-align: center;
+}
+
+
+.content__title {
+  margin-top: 16px;
+}
+
+.form {
+  margin: 0 auto;
+  padding: 16px;
+}
+
+p{
+  margin: 0;
+}
+
+table {
+  width: 70%;
+  margin: 0 auto;
+  border: 1px solid #eee;
+
+}
+
+
+.table__header {
+  text-align: left;
+  width: 30%;
+  padding:  16px;
+  border-bottom: 1px solid #eee;
+  background-color: var(--color-main);
+  color: white;
+}
+
+.table__item {
+  text-align: left;
+  padding: 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.form__button {
+  margin: 32px 0 0;
+}
+
+.form__button-submit {
+  all: unset;
+  padding: 4px 32px;
+  background-color: #82756b;
+  color: #fff;
+  cursor: pointer;
+  transform: translate(-60px,0);
+}
+.form_modify-button {
+  all: unset;
+  padding: 4px 32px;
+  background-color: none;
+  color: #000;
+  border-bottom: 1px solid ;
+  cursor: pointer;
+  transform: translate(60px,-48px);
+
+}

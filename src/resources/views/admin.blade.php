@@ -4,7 +4,10 @@
 @endsection
 
 @section('link-button')
-<a href="">logout</a>
+<form method="POST" action="/logout">
+  @csrf
+  <button type="submit" class="logout-button">logout</button>
+</form>
 @endsection
 
 @section('content')
@@ -137,7 +140,7 @@
                 <tr>
                   <th class="table__header--modal">お問い合わせの内容</th>
                   <td class="table__item--modal">
-                    {{$contact['detail']}}
+                    {!! nl2br(e($contact['detail'])) !!}
                   </td>
                 </tr>
               </table>

@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,13 @@ Route::get('/thanks', [ContactController::class, 'thanks']);
 Route::post('/', [ContactController::class, 'confirm']);
 Route::post('/create', [ContactController::class, 'create']);
 
-Route::get('/admin', [AdminController::class, 'index']);
-Route::delete('/admin/delete', [AdminController::class, 'destroy']);
-Route::get('/admin/export', [AdminController::class, 'export']);
+Route::middleware('auth')->group(function(){
+  Route::get('/admin', [AdminController::class, 'index']);
+  Route::delete('/admin/delete', [AdminController::class, 'destroy']);
+  Route::get('/admin/export', [AdminController::class, 'export']);
+});
+
+
+Route::get('/login', [LoginController::class, 'showLoginForm']);
+Route::post('/login', [LoginController::class, 'login']);
+
