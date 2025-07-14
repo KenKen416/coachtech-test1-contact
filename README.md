@@ -4,7 +4,8 @@
 ## 環境構築
 
 ### Dockerビルド
-1. git clone　[リンク](https://github.com/KenKen416/coachtech-test1-contact.git)
+1. git clone　
+- git@github.com:KenKen416/coachtech-test1-contact.git
 2. docker-compose up -d --build. 
 
 ### Laravel環境構築
