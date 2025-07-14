@@ -41,12 +41,8 @@
         </tr>
 
         <tr class="table__row">
-          <th class="table__header">
-            電話番号
-          </th>
-          <td class="table__item">
-            <p>{{$tel}}</p>
-          </td>
+          <th class="table__header">電話番号</th>
+          <td class="table__item"><p>{{$tel}}</p></td>
         </tr>
 
         <tr class="table__row">
